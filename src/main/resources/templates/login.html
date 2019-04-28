@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<title>登录</title>
+
+	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+	<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+
+</head>
+<body>
+<div class="login">
+	<img alt="" th:src="@{/img/login.jpg}" />
+	<br />
+	错误信息：<h4 th:text="${message}"></h4>
+	<form id="userLogin" method="post">
+		<p>账号：<input type="text" name="username"  id="username"/></p>
+		<p>密码：<input type="password" name="password"  id="password"/></p>
+		<!--<p>-->
+			<!--验证码：-->
+			<!--<input type="text" name="kaptchaValidate" />-->
+			<!--<img src="/captcha" style="width:85px;height:40px;" onclick="this.src='/captcha?v=1'" />-->
+		<!--</p>-->
+		<p><input type="checkbox" name="rememberMe"/>记住我</p>
+		<p><input type="button" value="登录" style="margin-left:200px;" onclick="login()" /></p>
+	</form>
+</div>
+
+<script>
+
+	function login() {
+	    if(!checkForm()){
+	        return;
+		}
+		$.post("/blog/login", $("#userLogin").serialize(), function (data) {
+			if(data.code == 0) {
+			    window.location.href = "/blog/index";
+			} else {
+			  alert(data.message);
+			  // window.location.href = "/login";
+			}
+        });
+    }
+
+    /**
+	 * 判断账号和密码
+     * @returns {boolean}
+     */
+   function checkForm(){
+       //获取到账号和密码.
+       var username = $("#username").val();
+       var password = $("#password").val();
+       if(username == ''){
+           alert("请输入账号");
+           return false;
+       }
+       if(password == ''){
+           alert("请输入密码");
+           return false;
+       }
+       return true;
+   }
+
+
+</script>
+
+</body>
+</html>

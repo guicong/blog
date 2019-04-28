@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<!-- 1、显示当前登录的用户名. -->
+	<h3>
+		<span th:text="'登录账号：'+${sysUser.userName}+'--名称：'+${sysUser.realName}"></span>
+		
+		<a href="/blog/logout">退出</a>
+	</h3>
+
+	<p>
+		<a href="/blog/sysUser/queryUserList">用户查询</a>
+	</p>
+	<p>
+		<a href="/blog/sysUser/userAdd">用户添加</a>
+	</p>
+	<p>
+		<a href="/blog/sysUser/userDel">用户删除</a>
+	</p>
+	
+	
+</body>
+</html>

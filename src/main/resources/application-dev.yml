@@ -1,0 +1,47 @@
+## 开发环境配置
+
+#  配置数据源
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: CONG_cong1
+      url: jdbc:mysql://47.112.212.15:3306/blog?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      #  配置连接池信息
+      #  初始化连接池数量
+      initial-size: 1
+      #  最小连接池数量
+      min-idle: 1
+      # 最大连接池数量
+      max-active: 10
+      #  配置获取连接等待超时的时间
+      max-wait: 60000
+      #  配置间隔多久才进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 30000
+      #  配置一个连接在池中最小的生存时间
+      min-evictable-idle-time-millis: 300000
+      #  检测是否有效的SQL
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+
+
+#  mybatis-plus插件配置
+mybatis-plus:
+  #  配置扫描xml
+  mapper-locations: classpath:/mapper/*
+  #  配置扫描实体类，多个package用逗号或分号隔开
+  type-aliases-package: com.cong.web.model
+  configuration:
+    #  配置返回数据库的数据直接从下划线命名转为驼峰命名（相当于:select user_id as userId）
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      #  默认数据库使用下划线命名
+      table-underline: true
+
+
+

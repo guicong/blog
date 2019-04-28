@@ -1,0 +1,26 @@
+spring:
+  #  指定采用哪个配置文件
+  profiles:
+    active: dev
+  # 配置thymeleaf
+  thymeleaf:
+    # 开发时关闭缓存,不然没法看到实时页面
+    cache: false
+
+
+server:
+  #  运行端口
+  port: 10001
+  servlet:
+    #  指定servlet跟路径
+    context-path: /blog
+
+
+# 指定配置文件
+logging:
+  config: classpath:log4j2.xml
+  level:
+    com.cong.web.mapper: debug
+
+
+

@@ -1,0 +1,13 @@
+1、Springboot2与Druid的整合
+2、Springboot2与Mybatis-plus的整合
+    （1）配置分页插件
+    （2）配置代码生成器
+3、Springboot2与Log4j2的整合
+4、Springboot2与Shiro（权限）以及Ehcache（缓存）整合
+    注：（1）Shiro的登录认证
+        （2）Shiro授权认证及权限注解
+        （3）Shiro与Ehcache整合
+        （4）Shiro之记住我（rememberMe）
+        （5）Shiro之登录次数限制
+5、Springboot2与Freemarker的整合
+    （1）利用Freemarker生成word文档（包含签名图片）
